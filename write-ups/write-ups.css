@@ -1,0 +1,57 @@
+/* 
+black  : #0a0a0a;
+yellow : #ffbf3b;
+white  : #cccccc;
+font   : Inconsolata;
+*/
+
+p {
+	font-family: Inconsolata;
+	color: #cccccc;
+	font-size: 20px;
+}
+
+h1, h2 {
+	font-family: Inconsolata;
+	color: #ffbf3b;
+}
+
+body {
+	background-color: #0a0a0a; 
+}
+
+a {
+	font-family: Inconsolata;
+	font-size: 20px;
+	color: #ffbf3b;
+	font-weight: bold;
+	text-decoration: none;
+	
+}
+
+b {
+	color: #ffbf3b;
+}
+
+#mainTitle {
+	font-size: 52px;
+	text-align: center;
+}
+
+#command {
+	font-size: 28px;
+}
+
+#navbar-main {
+	width: 100px; 
+    left: 40%; 
+    -webkit-transform: translate(-60%, 0); 
+    position: absolute;
+}
+
+#navbar-writeups {
+	width: 110; 
+    left: 60%; 
+    -webkit-transform: translate(-40%, 0); 
+    position: absolute;
+}

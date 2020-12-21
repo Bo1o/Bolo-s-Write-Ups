@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="write-ups.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+	<title>B010's Write-ups!</title>
+</head>
+<body>
+	<h1 id="mainTitle">Bolo's write-ups</h1>
+	<a id ="navbar-main" href="../index.html">/home</a>
+	<a id ="navbar-writeups" href="../write-ups-list.html">/write-ups</a>
+	</br>
+	<p id="command"><b>bolo@write-up:~$</b> cat Task.txt</p>
+	<p>Someone is mischievous at The Best Festival Company. The contents within the stockings have been removed. A clue was left in one of the stockings that hints that the contents have been hidden within Elfstation1. McEager moves quickly and attempts to RDP into the machine. Yikes! He is unable to log in.
+	</br><b>Note:</b> All of the ips shown in this write-up will probably not be the same for you.</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat settingUp.txt</p>
+	<p>We first need to login to the machine using ssh and get our powershell running.</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 1.txt</p>
+	<p><i>Search for the first hidden elf file within the Documents folder. Read the contents of this file. What does Elf 1 want?</i></br>Once that we are log on, we need to go to the Documents folder and look for the hidden files within it.</p>
+	<img src="AoC2020-20/1st.png", alt="First Image for the write-up">
+	<p><b>Answer:</b> 2 front teeth</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 2.txt</p>
+	<p><i>Search on the desktop for a hidden folder that contains the file for Elf 2. Read the contents of this file. What is the name of that movie that Elf 2 wants?</i></br>Now, we need to go to the desktop of the mceager user, to do so, we go back to the previous folder and move to the desktop. After what, we can look for the hidden files within this directory. Once we found the interesting folder (elf2wo) we just browse into it and read the file.</p>
+	<img src="AoC2020-20/2nd.png" alt="Second Image for the write-up">
+	<p><b>Answer:</b> Scrooged</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 3.txt</p>
+	<p><i>Search the Windows directory for a hidden folder that contains files for Elf 3. What is the name of the hidden folder? (This command will take a while)</i></br>This is where we start to think by ourselves, here we will need to create a filter to find the elf's folder, I'll use "*3*" which means : anything-3-anything, for example 3de.png is valid, but d5e.png is not.</p>
+	<img src="AoC2020-20/3rd.png" alt="Third Image for the write-up">
+	<p><b>Answer:</b> 3lfthr3e</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 4.txt</p>
+	<p><i>How many words does the first file contain?</i></br>A pretty easy one there, we just browse to the found folder, find the hidden files and use the command that was given to us in the introduction of this challenge to get the number of words.</p>
+	<img src="AoC2020-20/4th_1.png" alt="First of Fourth Image for the write-up">
+	</br>
+	<img src="AoC2020-20/4th_2.png" alt="Second of Fourth Image for the write-up">
+	<p><b>Answer:</b> 9999</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 5.txt</p>
+	<p><i>What 2 words are at index 551 and 6991 in the first file?</i></br>Once more, we just have to use the command given in the intro and apply it to the problem.</p>
+	<img src="AoC2020-20/5th.png" alt="Fifth Image for the write-up">
+	<p><b>Answer:</b> Red Ryder</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat 6.txt</p>
+	<p><i>This is only half the answer. Search in the 2nd file for the phrase from the previous question to get the full answer. What does Elf 3 want? (use spaces when submitting the answer)</i></br>Here we have the big boss, the last and final question of this challenge !!! Luckily for us, it was a pretty easy donjon and our insane lvl 24 Knight character will just destroy this last enemy with a simple Select-String attack.</p>
+	<img src="AoC2020-20/6th.png" alt="Fifth Image for the write-up">
+	<p><b>Answer:</b> red ryder bb gun</p>
+
+</body>
+</html>

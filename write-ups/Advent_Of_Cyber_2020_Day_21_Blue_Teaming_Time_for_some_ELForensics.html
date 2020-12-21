@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="write-ups.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+	<title>B010's Write-ups!</title>
+</head>
+<body>
+	<h1 id="mainTitle">Bolo's write-ups</h1>
+	<a id ="navbar-main" href="../index.html">/home</a>
+	<a id ="navbar-writeups" href="../write-ups-list.html">/write-ups</a>
+	</br>
+	<p id="command"><b>bolo@write-up:~$</b> cat Task.txt</p>
+	<p>One of the 'little helpers' logged into his workstation only to realize that the database connector file has been replaced, and he can't find the naughty list anymore. Furthermore, upon executing the database connector file, a taunting message was displayed, hinting that the file was moved to another location.</br>McEager has been notified, and he will put the pieces together to find the database connector file.</br><b>Note:</b> All of the ips shown in this write-up will probably not be the same for you.</p>	<p id="command"><b>bolo@write-up:~$</b> cat settingUp.txt</p>
+	<p>Log in using remmina to get rdp ( Remote Desktop Protocol ) and open the powershell.</p>
+	<p id="command"><b>bolo@write-up:~$</b> cat 1.txt</p>
+	<p><i>Read the contents of the text file within the Documents folder. What is the file hash for db.exe ?</i></br>Just browse to the Documents of littlehelper and read the content of the 'db file hash.txt'.</p>
+	<img src="Advent_Of_Cyber_2020_Day_21_Blue_Teaming_Time_for_some_ELForensics/1.png" alt="Image number 1">
+	<p><b>Answer:</b> 596690FFC54AB6101932856E6A78E3A1</p>
+	<p id="command"><b>bolo@write-up:~$</b> cat 2.txt</p>
+	<p><i>What is the file hash of the mysterious executable within the Documents folder ?</i></br>Here we will use the command that was given in the introduction to get the md5 hash of the asked file.</p>
+	<img src="Advent_Of_Cyber_2020_Day_21_Blue_Teaming_Time_for_some_ELForensics/2.png" alt="Image number 2">
+	<p><b>Answer:</b> 5F037501FB542AD2D9B06EB12AED09F0</p>
+	<p id="command"><b>bolo@write-up:~$</b> cat 3.txt</p>
+	<p><i>Using Strings find the hidden flag within the executable ?</i></br>Once more, use the command that was given in the introduction to use the string64.exe script that finds every combination of 3 or more valid ASCII character.</p>
+	<img src="Advent_Of_Cyber_2020_Day_21_Blue_Teaming_Time_for_some_ELForensics/3.png" alt="Image number 3">
+	</br>
+	<img src="Advent_Of_Cyber_2020_Day_21_Blue_Teaming_Time_for_some_ELForensics/4.png" alt="Image number 4">
+	<p><b>Answer:</b> THM{f6187e6cbeb1214139ef313e108cb6f9}</p>
+	<p id="command"><b>bolo@write-up:~$</b> cat 4.txt</p>
+	<p><i>What is the flag that is displayed when you run the database connector file ?</i></br>We will have to first find the name of ADS and then run the deebee.exe executable using this ADS with the Windows Management Instrumentation command.</p>
+	<img src="Advent_Of_Cyber_2020_Day_21_Blue_Teaming_Time_for_some_ELForensics/5.png" alt="Image number 5">
+	<p><b>Answer:</b> THM{088731ddc7b9fdeccaed982b07c297c}</p>
+
+</body>
+</html>

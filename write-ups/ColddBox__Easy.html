@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="write-ups.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet"> 
+	<title>B010's Write-ups!</title>
+</head>
+<body>
+	<h1 id="mainTitle">Bolo's write-ups</h1>
+	<a id ="navbar-main" href="../index.html">/home</a>
+	<a id ="navbar-writeups" href="../write-ups-list.html">/write-ups</a>
+	</br>
+	<p id="command"><b>bolo@write-up:~$</b> cat Task.txt</p>
+
+	<p>Can you get access and get both flags?</br>Good Luck.!</br><b>Note:</b> All of the ips shown in this write-up will probably not be the same for you.</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat user.txt</p>
+
+	<p>First, we'll start by a basic nmap scan.</p>
+
+	<img src="ColddBox__Easy/1.png" alt="Image number 1">
+	<p></br>As we can see, there is only the port 80 opened on this machine, lets browse to its http server using our browser !</p>
+
+	<img src="ColddBox__Easy/2.png" alt="Image number 2">
+	<p></br>This website is using the Wordpress CMS, lets run a gobuster dir finder on it...</p>
+
+	<img src="ColddBox__Easy/3.png" alt="Image number 3">
+	<p></br>We find a /hidden page on the website, browse to it and see what we have here !</p>
+
+	<img src="ColddBox__Easy/4.png" alt="Image number 4">
+	<p>Now, we can use the very good wpscan tool to enumerate the users and bruteforce them.</p>
+
+	<img src="ColddBox__Easy/5.png" alt="Image number 5">
+	<p></br>Bruteforcing one of the user can take a pretty long time, the first one we are able to log into is the c0ldd's account with the password <b>9876543210</b>.</p>
+
+	<img src="ColddBox__Easy/6.png" alt="Image number 6">
+	<p></br>Now that we are logged on and that we have an admin account on the website, we can use our privileges to edit the website's theme in order to get a reverse shell.</br>To do so, go to the theme editor and replace the 404.php content with a reverse shell that can be found <a target="_blank" href="https://github.com/pentestmonkey/php-reverse-shell">here</a>, don't forget to change the IP address to your THM vpn.</p>
+
+	<img src="ColddBox__Easy/7.png" alt="Image number 7">
+	<p></br>Once the file is updated, we can browse to wp-content/themes/twentyfifteen/404.php to get our reverse shell !</p>
+
+	<img src="ColddBox__Easy/8.png" alt="Image number 8">
+	<p></br>Now that we have access to the machine, we can upgrade our shell to a more efficient one ( you can use this <a target="_blank" href="https://blog.ropnop.com/upgrading-simple-shells-to-fully-interactive-ttys/">guide</a> to upgrade your shell ) and find a way to get at least a regular account and afterwhat get root ! To do so, I will use the <a target="_blank" href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linepeas.sh</a> script to try to elevate my privileges.</p>
+
+	<img src="ColddBox__Easy/9.png" alt="Image number 9">
+
+	<p></br>Once the linepeas script is on the victim's machine ( be sure to navigate to the /tmp folder, else you won't be able to write anything ) we can start our enumeration. The script found us 3 files where passwords were stored, lets take a look at them !</p>
+
+	<img src="ColddBox__Easy/10.png" alt="Image number 10">
+	</br>
+	<img src="ColddBox__Easy/11.png" alt="Image number 10">
+
+	<p></br>Nice ! We found some credentials for a db using c0ldd's account, but why not trying to log into this machine using these same credentials ? Easy ! Now that we are logged on, we can get our user.txt flag.</p>
+
+	<img src="ColddBox__Easy/12.png" alt="Image number 11">
+	</br>
+	<img src="ColddBox__Easy/13.png" alt="Image number 12">
+
+	<p><b>Answer:</b> RmVsaWNpZGFkZXMsIHByaW1lciBuaXZlbCBjb25zZWd1aWRvIQ==</p>
+
+	<p id="command"><b>bolo@write-up:~$</b> cat root.txt</p>
+
+	<p>Now, we need to get root, and as we are logged with a user account with its password, we can use the sudo -l command.</p>
+
+	<img src="ColddBox__Easy/14.png" alt="Image number 13">
+
+	<p></br>We can use one of these 3 programs to get our privesc done. I'm using the <a target="_blank" href="https://gtfobins.github.io/">gtfobins</a> website to get my reverse shell using the ftp binary.</p>
+
+	<img src="ColddBox__Easy/15.png" alt="Image number 14">
+	</br>
+	<img src="ColddBox__Easy/16.png" alt="Image number 15">
+
+	<p><b>Answer:</b> wqFGZWxpY2lkYWRlcywgbcOhcXVpbmEgY29tcGxldGFkYSE=</p>
+
+</body>
+</html>
